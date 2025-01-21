@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://c0m85grsc5gfp"]
+[gd_scene load_steps=5 format=3 uid="uid://c0m85grsc5gfp"]
 
-[ext_resource type="Texture2D" uid="uid://c2lor0vay1ktn" path="res://icon.svg" id="1_0kaaa"]
+[ext_resource type="Script" path="res://Scripts/MC/MC.gd" id="1_ylmd1"]
+[ext_resource type="Texture2D" uid="uid://c2lor0vay1ktn" path="res://icon.svg" id="2_n3751"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_avby1"]
 animations = [{
@@ -11,7 +12,7 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_0kaaa")
+"texture": ExtResource("2_n3751")
 }],
 "loop": true,
 "name": &"Idle",
@@ -31,6 +32,7 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pkstb"]
 
 [node name="MainCharacter" type="CharacterBody2D"]
+script = ExtResource("1_ylmd1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_avby1")
