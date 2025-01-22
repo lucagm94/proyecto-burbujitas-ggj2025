@@ -1,8 +1,9 @@
 extends Node
 class_name State
 
-
-func _init() -> void:
+var machine
+func _init(machine_reference) -> void:
+	machine = machine_reference
 	_enter()
 	pass
 
@@ -11,4 +12,7 @@ func _enter() -> void:
 	
 
 func _exit(state:State) ->void:
+	pass
+	
+func doingHisShit():
 	pass

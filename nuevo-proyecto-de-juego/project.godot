@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="ProyectoBurbujitas"
+run/main_scene="res://Scenes/Levels/Level1/Level1.tscn"
 config/features=PackedStringArray("4.3", "Forward Plus")
 config/icon="res://icon.svg"
+
+[global_group]
+
+Bubble=""
 
 [input]
 

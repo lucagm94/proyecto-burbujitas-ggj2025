@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lbmfh"]
 size = Vector2(10.5, 10.5)
 
-[node name="Bubble" type="CharacterBody2D"]
+[node name="Bubble" type="CharacterBody2D" groups=["Bubble"]]
 script = ExtResource("1_dlx25")
 
 [node name="BubbleSprite" type="Sprite2D" parent="."]
