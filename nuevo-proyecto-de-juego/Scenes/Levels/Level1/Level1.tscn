@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://cs2tbqq7sbrjh"]
+[gd_scene load_steps=5 format=3 uid="uid://cs2tbqq7sbrjh"]
 
 [ext_resource type="Texture2D" uid="uid://c2lor0vay1ktn" path="res://icon.svg" id="1_ejgjx"]
 [ext_resource type="PackedScene" uid="uid://c0m85grsc5gfp" path="res://Scenes/MC/MC.tscn" id="2_7bh2i"]
 [ext_resource type="PackedScene" uid="uid://coshao3qn5qa2" path="res://Scenes/Plants/Alga.tscn" id="3_v7t5n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0t2bp"]
+size = Vector2(42.1019, 20)
 
 [node name="Level1" type="Node2D"]
 
@@ -16,4 +19,20 @@ texture = ExtResource("1_ejgjx")
 position = Vector2(708, 385)
 
 [node name="Alga" parent="." instance=ExtResource("3_v7t5n")]
-position = Vector2(240, 562)
+position = Vector2(257, 407)
+
+[node name="Pisito" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Pisito"]
+position = Vector2(615, 661)
+scale = Vector2(36.0415, -1.65191)
+shape = SubResource("RectangleShape2D_0t2bp")
+
+[node name="Techito" type="StaticBody2D" parent="."]
+position = Vector2(152, -624)
+rotation = 0.521
+
+[node name="CollisionShape2D" type="CollisionPolygon2D" parent="Techito"]
+position = Vector2(560, 646)
+scale = Vector2(36.0415, -1.65191)
+polygon = PackedVector2Array(-5.38268, -38.1376, -2.46938, 18.7661, -1.77573, 66.5894, 2.19192, 89.5931, -3.30175, 125.309)

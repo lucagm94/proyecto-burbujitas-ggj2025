@@ -1,4 +1,4 @@
-extends Node2D
+extends RigidBody2D
 
 var state:State
 var hits:int
@@ -12,10 +12,10 @@ func _ready() -> void:
 	
 func _physics_process(delta: float) -> void:
 	state.doingHisShit()
+
 	pass
 	
 func _hits():
-	print("Se ejecuta hits")
 	if hits < 4:
 		hits+=1
 		
@@ -36,11 +36,17 @@ func _hits():
 			%SecondHit.visible = false
 			%ThirdHit.visible = false
 			%FourthHit.visible = true
-			state = InABubble.new(self)
+			if not (state is InABubble):
+				print("CREANDO ESTADO NUEVO")
+				state = InABubble.new(self)
 			
-func _on_area_2d_body_shape_entered(body_rid: RID, body: Node2D, body_shape_index: int, local_shape_index: int) -> void:
+			
+
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	print("colision")
 	if body.is_in_group("Bubble"): #no encontre mejor manera para identificar a la burbuja
+		body.queue_free()
 		_hits()
-		
-	
 	pass # Replace with function body.
