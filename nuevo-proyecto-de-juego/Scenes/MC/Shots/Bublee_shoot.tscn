@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dm7d7thuyjrvs"]
+
+[ext_resource type="Script" path="res://Scripts/MC/Shots/bublee_shoot.gd" id="1_dlx25"]
+[ext_resource type="Texture2D" uid="uid://yqi1aup7cwri" path="res://Assets/MC/Shots/PH_Bubble.png" id="1_qywdr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lbmfh"]
+size = Vector2(10.5, 10.5)
+
+[node name="Bubble" type="CharacterBody2D"]
+script = ExtResource("1_dlx25")
+
+[node name="BubbleSprite" type="Sprite2D" parent="."]
+position = Vector2(1.19209e-07, -1.19209e-07)
+scale = Vector2(0.566667, 0.533333)
+texture = ExtResource("1_qywdr")
+
+[node name="BubbleColission" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_lbmfh")
+
+[node name="TimerFuerza" type="Timer" parent="."]
+wait_time = 0.1
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="TimerFuerza" to="." method="_on_timer_fuerza_timeout"]
