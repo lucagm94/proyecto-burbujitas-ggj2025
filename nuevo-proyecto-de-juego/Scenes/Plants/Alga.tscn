@@ -9,7 +9,8 @@ radius = 51.0
 height = 154.0
 
 [node name="Alga" type="RigidBody2D"]
-inertia = 34.23
+center_of_mass_mode = 1
+center_of_mass = Vector2(0, 70)
 freeze = true
 script = ExtResource("1_qehxn")
 

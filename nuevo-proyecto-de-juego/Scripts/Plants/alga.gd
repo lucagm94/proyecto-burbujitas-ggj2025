@@ -8,6 +8,7 @@ func _ready() -> void:
 	hits = 0
 	state = State.new(self)
 	
+	
 	pass
 	
 func _physics_process(delta: float) -> void:
@@ -37,7 +38,6 @@ func _hits():
 			%ThirdHit.visible = false
 			%FourthHit.visible = true
 			if not (state is InABubble):
-				print("CREANDO ESTADO NUEVO")
 				state = InABubble.new(self)
 			
 			
@@ -45,7 +45,6 @@ func _hits():
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	print("colision")
 	if body.is_in_group("Bubble"): #no encontre mejor manera para identificar a la burbuja
 		body.queue_free()
 		_hits()
