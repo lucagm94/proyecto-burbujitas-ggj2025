@@ -17,8 +17,9 @@ texture = ExtResource("1_ejgjx")
 position = Vector2(708, 385)
 
 [node name="Alga" parent="." instance=ExtResource("3_v7t5n")]
-position = Vector2(75, 564)
+position = Vector2(423, 564)
 
 [node name="Fondo" parent="." instance=ExtResource("4_ul5jm")]
-position = Vector2(839, 296)
-rotation = 2.97991
+position = Vector2(583, 428)
+rotation = 3.14898
+scale = Vector2(0.444266, 0.444266)
