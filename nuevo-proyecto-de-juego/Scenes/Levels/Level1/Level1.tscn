@@ -1,25 +1,32 @@
-[gd_scene load_steps=5 format=3 uid="uid://cs2tbqq7sbrjh"]
+[gd_scene load_steps=6 format=3 uid="uid://cs2tbqq7sbrjh"]
 
 [ext_resource type="Texture2D" uid="uid://c2lor0vay1ktn" path="res://icon.svg" id="1_ejgjx"]
 [ext_resource type="PackedScene" uid="uid://c0m85grsc5gfp" path="res://Scenes/MC/MC.tscn" id="2_7bh2i"]
 [ext_resource type="PackedScene" uid="uid://coshao3qn5qa2" path="res://Scenes/Plants/Alga.tscn" id="3_v7t5n"]
 [ext_resource type="PackedScene" uid="uid://de06fq071sdow" path="res://Scenes/Enviroment/Fondo.tscn" id="4_ul5jm"]
+[ext_resource type="PackedScene" uid="uid://dcjrdh668tuat" path="res://Scenes/Enviroment/ground.tscn" id="5_vwimc"]
 
 [node name="Level1" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 1)
+z_index = -1
 position = Vector2(633.5, 332.5)
 scale = Vector2(10.8984, 6.19531)
 texture = ExtResource("1_ejgjx")
 
 [node name="MainCharacter" parent="." instance=ExtResource("2_7bh2i")]
+z_index = 1
 position = Vector2(708, 385)
 
 [node name="Alga" parent="." instance=ExtResource("3_v7t5n")]
+z_index = 1
 position = Vector2(423, 564)
 
 [node name="Fondo" parent="." groups=["RompeBurbuja"] instance=ExtResource("4_ul5jm")]
 position = Vector2(583, 428)
 rotation = 3.14898
 scale = Vector2(0.444266, 0.444266)
+
+[node name="Ground" parent="." instance=ExtResource("5_vwimc")]
+position = Vector2(641, 548)

@@ -3,6 +3,7 @@ class_name IdleObject
 
 func _enter(machine_reference):
 	super._enter(machine_reference)
+	print("Ingresando a idle")
 	machine.set_deferred("freeze",true)
 	pass
 

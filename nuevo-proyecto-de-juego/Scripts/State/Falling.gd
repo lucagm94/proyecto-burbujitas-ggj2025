@@ -12,5 +12,9 @@ func _enter(machine_reference):
 func doingHisShit():
 	pass
 	
-func _on_area_2d_body_entered(body: Node2D) -> void: #remplaza al metodo de la señal
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	print(body) #remplaza al metodo de la señal
+	if body.is_in_group("Ground"): #no encontre mejor manera para identificar a la burbuja
+		print("Cambiando a idle")
+		machine._changeState(IdleObject.new())
 	pass
