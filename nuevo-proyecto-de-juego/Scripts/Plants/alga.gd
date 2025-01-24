@@ -6,9 +6,8 @@ var bubble = preload("res://Scenes/MC/Shots/Bublee_shoot.tscn")
 
 func _ready() -> void:
 	hits = 0
-	state = State.new(self)
-	
-	
+	state = IdleObject.new()
+	state._enter(self)
 	pass
 	
 func _physics_process(delta: float) -> void:
@@ -17,9 +16,7 @@ func _physics_process(delta: float) -> void:
 	pass
 	
 func _hits():
-	if hits < 4:
-		hits+=1
-		
+	hits +=1
 	match hits:
 		0:
 			%FirstHit.visible = false
@@ -38,14 +35,16 @@ func _hits():
 			%ThirdHit.visible = false
 			%FourthHit.visible = true
 			if not (state is InABubble):
-				state = InABubble.new(self)
+				_changeState(InABubble.new())
 			
 			
 
+func _changeState(newState:State):
+	state._exit()
+	state = newState
+	state._enter(self)
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body.is_in_group("Bubble"): #no encontre mejor manera para identificar a la burbuja
-		body.queue_free()
-		_hits()
+	state._on_area_2d_body_entered(body)
 	pass # Replace with function body.
