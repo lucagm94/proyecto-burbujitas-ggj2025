@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cs2tbqq7sbrjh"]
+[gd_scene load_steps=7 format=3 uid="uid://cs2tbqq7sbrjh"]
 
 [ext_resource type="Texture2D" uid="uid://c2lor0vay1ktn" path="res://icon.svg" id="1_ejgjx"]
 [ext_resource type="PackedScene" uid="uid://c0m85grsc5gfp" path="res://Scenes/MC/MC.tscn" id="2_7bh2i"]
 [ext_resource type="PackedScene" uid="uid://coshao3qn5qa2" path="res://Scenes/Plants/Alga.tscn" id="3_v7t5n"]
 [ext_resource type="PackedScene" uid="uid://de06fq071sdow" path="res://Scenes/Enviroment/Fondo.tscn" id="4_ul5jm"]
 [ext_resource type="PackedScene" uid="uid://dcjrdh668tuat" path="res://Scenes/Enviroment/ground.tscn" id="5_vwimc"]
+[ext_resource type="PackedScene" uid="uid://betb6q7kc4x64" path="res://Scenes/MC/Shots/Air.tscn" id="6_c8vj6"]
 
 [node name="Level1" type="Node2D"]
 
@@ -30,3 +31,7 @@ scale = Vector2(0.444266, 0.444266)
 
 [node name="Ground" parent="." instance=ExtResource("5_vwimc")]
 position = Vector2(641, 548)
+
+[node name="Air" parent="." instance=ExtResource("6_c8vj6")]
+position = Vector2(411, 346)
+rotation = -0.519585

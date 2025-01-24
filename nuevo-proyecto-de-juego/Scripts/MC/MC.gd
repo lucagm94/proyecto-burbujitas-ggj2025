@@ -7,6 +7,7 @@ var shots:Array = ["Bubble","Air"]
 var currentShot = "Bubble"
 
 func _physics_process(delta: float) -> void:
+	
 	mover_mc(delta)
 
 	
