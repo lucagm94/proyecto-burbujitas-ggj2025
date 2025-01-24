@@ -8,15 +8,18 @@ radius = 32.377
 height = 116.0
 
 [node name="Air" type="Area2D"]
+rotation = 0.00140778
 scale = Vector2(0.696066, 0.696066)
 collision_layer = 512
 collision_mask = 512
 script = ExtResource("1_nipun")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(158.031, 0)
 scale = Vector2(4.88, 1)
 shape = SubResource("CapsuleShape2D_40mii")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(168.088, 0)
 scale = Vector2(0.412508, 0.220938)
 texture = ExtResource("2_a37vw")
