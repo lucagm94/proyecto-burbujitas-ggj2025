@@ -1,0 +1,6 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://dru383w3qf711"]
+
+[ext_resource type="FontFile" uid="uid://c631od8itfc08" path="res://Assets/Fonts/Ballad of Dwight Frye.ttf" id="1_7agln"]
+
+[resource]
+font = ExtResource("1_7agln")
