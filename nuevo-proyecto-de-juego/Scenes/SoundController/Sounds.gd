@@ -5,7 +5,7 @@ var listaMusica: Array;
 var reproduccionActual;
 var sfxActual;
 func _ready():
-	reproduccionActual = $Sfx/BotonInicio
+	#reproduccionActual = $Sfx/BotonInicio
 	listaSonidos= $Sfx.get_children()
 	listaMusica = $Music.get_children()
 

@@ -32,7 +32,7 @@ scale = Vector2(0.444266, 0.444266)
 [node name="Ground" parent="." instance=ExtResource("5_vwimc")]
 position = Vector2(641, 548)
 
-[node name="SistemaDeOxigeno" parent="." groups=["ControlOxigeno"] instance=ExtResource("6_qjn06")]
+[node name="SistemaDeOxigeno" parent="." instance=ExtResource("6_qjn06")]
 offset_left = 159.0
 offset_top = 23.0
 offset_right = 159.0
