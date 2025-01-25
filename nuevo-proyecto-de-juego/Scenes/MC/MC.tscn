@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://c0m85grsc5gfp"]
+[gd_scene load_steps=6 format=3 uid="uid://c0m85grsc5gfp"]
 
 [ext_resource type="Script" path="res://Scripts/MC/MC.gd" id="1_ylmd1"]
 [ext_resource type="Texture2D" uid="uid://c2lor0vay1ktn" path="res://icon.svg" id="2_n3751"]
@@ -31,6 +31,9 @@ animations = [{
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pkstb"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8mpw8"]
+size = Vector2(116, 103)
+
 [node name="MainCharacter" type="CharacterBody2D"]
 script = ExtResource("1_ylmd1")
 
@@ -41,3 +44,12 @@ autoplay = "Idle"
 
 [node name="MC_Colission" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_pkstb")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -2.5)
+shape = SubResource("RectangleShape2D_8mpw8")
+
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

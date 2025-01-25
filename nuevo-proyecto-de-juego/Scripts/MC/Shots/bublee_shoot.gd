@@ -4,6 +4,9 @@ extends CharacterBody2D
 var velocidadInicial = 100
 var impulsoInicial = true
 
+func _ready():
+	Sounds.play_sfx("BubleeGun")
+
 func _physics_process(delta: float) -> void:
 	velocity.y = -speed * delta
 	move_and_slide()
@@ -26,6 +29,3 @@ func _on_timer_fuerza_timeout() -> void:
 		if velocity.x < 1 and velocity.x > -1:
 			$TimerFuerza.stop()
 			impulsoInicial = false
-	
-	
-	
