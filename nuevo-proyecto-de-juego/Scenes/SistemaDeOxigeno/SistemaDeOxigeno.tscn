@@ -22,7 +22,7 @@ fill_to = Vector2(1, 1)
 font_size = 40
 font_color = Color(0.494118, 0.105882, 0.105882, 1)
 
-[node name="SistemaDeOxigeno" type="Control"]
+[node name="SistemaDeOxigeno" type="Control" groups=["ControlOxigeno"]]
 layout_mode = 3
 anchors_preset = 5
 anchor_left = 0.5
