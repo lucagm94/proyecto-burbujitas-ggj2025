@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://betb6q7kc4x64"]
+[gd_scene load_steps=5 format=3 uid="uid://betb6q7kc4x64"]
 
 [ext_resource type="Script" path="res://Air.gd" id="1_nipun"]
 [ext_resource type="Texture2D" uid="uid://22rqs87i6qxc" path="res://Assets/MC/Shots/Air.png" id="2_a37vw"]
+[ext_resource type="AudioStream" uid="uid://dnacw4l8wdlr" path="res://Assets/MC/Shots/Secador_de_pelo.ogg" id="3_vo8gp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_40mii"]
 radius = 32.377
@@ -23,3 +24,13 @@ shape = SubResource("CapsuleShape2D_40mii")
 position = Vector2(168.088, 0)
 scale = Vector2(0.412508, 0.220938)
 texture = ExtResource("2_a37vw")
+
+[node name="Sound_secador" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_vo8gp")
+bus = &"Sfx"
+parameters/looping = true
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ce1vtll4kj4nj"]
+[gd_scene load_steps=4 format=3 uid="uid://ce1vtll4kj4nj"]
 
 [ext_resource type="Script" path="res://Scenes/SoundController/Sounds.gd" id="1_0mlu6"]
-[ext_resource type="AudioStream" uid="uid://bq1d3bvbed8g" path="res://Assets/MC/Shots/Pistola_burbuja_1.wav" id="2_u767a"]
+[ext_resource type="AudioStream" uid="uid://cp75kasvodtv1" path="res://Assets/MC/Shots/Pistola_burbuja_1.ogg" id="2_nna0e"]
+[ext_resource type="AudioStream" uid="uid://cdtitpm7e85tb" path="res://Assets/MC/Shots/explosion_burbuja.ogg" id="3_v1e48"]
 
 [node name="Sounds" type="AudioStreamPlayer"]
 script = ExtResource("1_0mlu6")
@@ -9,6 +10,10 @@ script = ExtResource("1_0mlu6")
 [node name="Sfx" type="Node" parent="."]
 
 [node name="BubleeGun" type="AudioStreamPlayer" parent="Sfx"]
-stream = ExtResource("2_u767a")
+stream = ExtResource("2_nna0e")
+
+[node name="BubleeExplosion" type="AudioStreamPlayer" parent="Sfx"]
+stream = ExtResource("3_v1e48")
+volume_db = -10.306
 
 [node name="Music" type="Node" parent="."]

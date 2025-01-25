@@ -11,6 +11,7 @@ func _enter(machine_reference):
 func _exit() ->void:
 	super._exit()
 	machine.find_child("FourthHit",true,false).visible = false
+	Sounds.play_sfx("BubleeExplosion")
 	pass
 
 

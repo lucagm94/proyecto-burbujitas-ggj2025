@@ -30,4 +30,11 @@ autostart = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BubbleArea"]
 shape = SubResource("CircleShape2D_k6yo2")
 
+[node name="Destruir" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
 [connection signal="timeout" from="TimerFuerza" to="." method="_on_timer_fuerza_timeout"]
+[connection signal="area_entered" from="BubbleArea" to="." method="_on_bubble_area_area_entered"]
+[connection signal="timeout" from="Destruir" to="." method="_on_destruir_timeout"]

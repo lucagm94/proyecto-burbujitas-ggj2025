@@ -7,6 +7,8 @@ var air = preload("res://Scenes/MC/Shots/Air.tscn")
 var bullet
 signal consumir_oxigeno(oxigenoUtilizado: int)
 signal recuperar_oxigeno(oxigenoRecuperado: int)
+
+
 func _physics_process(delta: float) -> void:
 	
 	mover_mc(delta)
@@ -51,6 +53,7 @@ func disparar() -> void:
 		add_child(bullet)
 		bullet.global_position = global_position
 		bullet.rotation= direccion.angle()
+		emit_signal("consumir_oxigeno",1)
 		pass
 			
 		
@@ -58,6 +61,7 @@ func disparar() -> void:
 		var mousePosition = get_global_mouse_position()
 		var direccion = (mousePosition - global_position).normalized()
 		bullet.rotation = direccion.angle()
+		
 			
 	if Input.is_action_just_released("right_click"):
 		print("Click soltado")
@@ -75,3 +79,4 @@ func _on_area_2d_area_entered(area: Area2D) -> void:
 	if area.name == "BubbleArea":
 		emit_signal("recuperar_oxigeno", 1)
 		area.get_parent().queue_free()
+		Sounds.play_sfx("BubleeExplosion")
