@@ -1,0 +1,124 @@
+[gd_scene load_steps=7 format=3 uid="uid://d00i2lgsen60n"]
+
+[ext_resource type="Script" path="res://Scenes/menu.gd" id="1_10va7"]
+[ext_resource type="Texture2D" uid="uid://8fw33kpnp755" path="res://Assets/menu/midground.png" id="1_rcug6"]
+[ext_resource type="LabelSettings" uid="uid://dru383w3qf711" path="res://Assets/Fonts/new_label_settings.tres" id="1_sbmn1"]
+[ext_resource type="FontFile" uid="uid://c631od8itfc08" path="res://Assets/Fonts/Ballad of Dwight Frye.ttf" id="2_2aj6m"]
+[ext_resource type="Texture2D" uid="uid://5n214pd4kyd2" path="res://Assets/menu/button_bg.png" id="2_07aml"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_hatue"]
+font = ExtResource("2_2aj6m")
+font_size = 50
+
+[node name="Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_10va7")
+
+[node name="bg_colour" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.0428303, 0.0745671, 0.144111, 1)
+
+[node name="Midground" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -47.0
+offset_top = -65.0
+offset_right = -190.0
+offset_bottom = -98.6
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.21667, 1.30078)
+texture = ExtResource("1_rcug6")
+expand_mode = 5
+stretch_mode = 6
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CenterContainer"]
+layout_mode = 2
+theme_override_constants/separation = 30
+alignment = 1
+
+[node name="label_titulo" type="Label" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+text = "so below"
+label_settings = SubResource("LabelSettings_hatue")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 30
+
+[node name="play" type="TextureButton" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_07aml")
+texture_pressed = ExtResource("2_07aml")
+texture_hover = ExtResource("2_07aml")
+stretch_mode = 5
+metadata/_edit_use_anchors_ = true
+
+[node name="play_button_label" type="Label" parent="CenterContainer/VBoxContainer/play"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "PLAY"
+label_settings = ExtResource("1_sbmn1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="exit" type="TextureButton" parent="CenterContainer/VBoxContainer"]
+layout_mode = 2
+texture_normal = ExtResource("2_07aml")
+texture_pressed = ExtResource("2_07aml")
+texture_hover = ExtResource("2_07aml")
+stretch_mode = 3
+flip_h = true
+flip_v = true
+metadata/_edit_use_anchors_ = true
+
+[node name="exit_button_label" type="Label" parent="CenterContainer/VBoxContainer/exit"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "EXIT"
+label_settings = ExtResource("1_sbmn1")
+
+[connection signal="button_up" from="CenterContainer/VBoxContainer/play" to="." method="_on_play_button_up"]
+[connection signal="button_up" from="CenterContainer/VBoxContainer/exit" to="." method="_on_exit_button_up"]
