@@ -20,7 +20,7 @@ func quitar_oxigeno(valorADescontar: int)-> void:
 
 func agregar_oxigeno(valorAAgregar)->void:
 	segundos += valorAAgregar
-	tiempoTranscurrido -= 1
+	tiempoTranscurrido -= valorAAgregar
 	if segundos >= 60:
 		segundos = 0 
 		minutos +=1 
@@ -40,3 +40,13 @@ func actualizar_tiempo():
 		$Texto.text = str(minutos) + ":" + str(segundos)
 	
 	$TextureProgressBar.value = tiempoTranscurrido
+
+
+func _on_main_character_consumir_oxigeno(oxigenoUtilizado: int) -> void:
+	quitar_oxigeno(oxigenoUtilizado)
+	pass # Replace with function body.
+
+
+func _on_main_character_recuperar_oxigeno(oxigenoRecuperado: int) -> void:
+	agregar_oxigeno(oxigenoRecuperado)
+	pass # Replace with function body.
