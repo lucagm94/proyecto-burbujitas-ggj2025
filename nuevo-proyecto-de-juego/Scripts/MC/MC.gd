@@ -32,7 +32,7 @@ func mover_mc(delta) -> void:
 
 func disparar() -> void: 
 	
-	if Input.is_action_just_pressed("left_click"): #
+	if Input.is_action_just_pressed("left_click"): 
 		var mousePosition = get_global_mouse_position()
 		var direccion = (mousePosition - global_position).normalized()
 		var origenBala = global_position + direccion * 80
