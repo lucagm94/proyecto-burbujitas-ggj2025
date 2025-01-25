@@ -7,7 +7,7 @@ var tiempoTranscurrido = 0
 func _ready():
 	
 	totalTime = minutos*60 + segundos
-	$TextureProgressBar.max_value = totalTime
+	%TextureProgressBar.max_value = totalTime
 	actualizar_tiempo();
 
 func quitar_oxigeno(valorADescontar: int)-> void:
@@ -31,15 +31,15 @@ func _on_descontar_segundo_timeout() -> void:
 
 func actualizar_tiempo():
 	if segundos < 10  && minutos <10:
-		$Texto.text = "0" + str(minutos) + ":0" + str(segundos)
+		%Texto.text = "0" + str(minutos) + ":0" + str(segundos)
 	elif segundos >10 && minutos < 10: 
-		$Texto.text = "0" + str(minutos) + ":" + str(segundos)
+		%Texto.text = "0" + str(minutos) + ":" + str(segundos)
 	elif segundos < 10 && minutos > 10:
-		$Texto.text = str(minutos) + ":0" + str(segundos)
+		%Texto.text = str(minutos) + ":0" + str(segundos)
 	else: 
-		$Texto.text = str(minutos) + ":" + str(segundos)
+		%Texto.text = str(minutos) + ":" + str(segundos)
 	
-	$TextureProgressBar.value = tiempoTranscurrido
+	%TextureProgressBar.value = tiempoTranscurrido
 
 
 func _on_main_character_consumir_oxigeno(oxigenoUtilizado: int) -> void:
