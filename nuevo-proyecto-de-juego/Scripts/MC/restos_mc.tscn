@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://byjlxafsmciqw"]
+
+[ext_resource type="Texture2D" uid="uid://c2lor0vay1ktn" path="res://icon.svg" id="1_6shd6"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nfs4p"]
+friction = 0.35
+bounce = 0.35
+absorbent = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0gbhv"]
+
+[node name="RestosMc" type="RigidBody2D"]
+modulate = Color(0.0156863, 0.482353, 0, 1)
+mass = 0.288
+physics_material_override = SubResource("PhysicsMaterial_nfs4p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_6shd6")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_0gbhv")
+
+[node name="Timer" type="Timer" parent="."]
