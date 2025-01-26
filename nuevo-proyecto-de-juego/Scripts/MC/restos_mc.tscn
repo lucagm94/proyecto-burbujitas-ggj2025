@@ -1,6 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://byjlxafsmciqw"]
+[gd_scene load_steps=6 format=3 uid="uid://byjlxafsmciqw"]
 
-[ext_resource type="Texture2D" uid="uid://c2lor0vay1ktn" path="res://icon.svg" id="1_6shd6"]
+[ext_resource type="Texture2D" uid="uid://dwxb0hf7grk5e" path="res://Assets/MC/MC/Hurt.png" id="1_nmugt"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_nfs4p"]
 friction = 0.35
@@ -9,15 +9,30 @@ absorbent = true
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0gbhv"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_hfate"]
+atlas = ExtResource("1_nmugt")
+region = Rect2(80, 0, 80, 80)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_shtv8"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hfate")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
 [node name="RestosMc" type="RigidBody2D"]
-modulate = Color(0.0156863, 0.482353, 0, 1)
 mass = 0.288
 physics_material_override = SubResource("PhysicsMaterial_nfs4p")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_6shd6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_0gbhv")
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(0.0702176, 0.991097, 0, 1)
+sprite_frames = SubResource("SpriteFrames_shtv8")

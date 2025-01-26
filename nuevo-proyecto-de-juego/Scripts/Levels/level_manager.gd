@@ -9,6 +9,7 @@ func _ready() -> void:
 func crearNuevoCuerpo() -> void: 
 	var nuevosRestos = restosMC.instantiate()
 	nuevosRestos.position = mc.position
+	nuevosRestos.rotation = randi_range(0,360)
 	get_tree().root.add_child(nuevosRestos)
 
 func _on_sistema_de_oxigeno_derrota() -> void:
