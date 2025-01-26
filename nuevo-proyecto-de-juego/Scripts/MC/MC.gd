@@ -6,6 +6,7 @@ var bubble = preload("res://Scenes/MC/Shots/Bublee_shoot.tscn")
 var air = preload("res://Scenes/MC/Shots/Air.tscn")
 var bullet
 enum  Estados {Idle, Movimiento, Daño}
+var estado_actual:Estados
 
 var muerte = false
 
@@ -23,6 +24,7 @@ func _process(delta: float) -> void:
 func mover_mc(delta) -> void: 
 	var direccion = Vector2.ZERO
 	if Input.is_action_pressed("Nadar"):
+		estado_actual = Estados.Movimiento
 		%AnimatedSprite2D.play("Lateral")
 		%Colision_Idle.set_deferred("disabled",false)
 		%Area_Idle.set_deferred("disabled",false)
@@ -37,6 +39,7 @@ func mover_mc(delta) -> void:
 	if Input.is_action_just_released("Nadar"):
 		rotation = 0
 		%AnimatedSprite2D.play("Idle")
+		estado_actual = Estados.Idle
 		%Colision_Idle.set_deferred("disabled",true)
 		%Area_Idle.set_deferred("disabled",true)
 		%MC_Colission_Lateral.set_deferred("disabled",false)
@@ -82,10 +85,10 @@ func disparar() -> void:
 			pass
 				
 			
-		#if Input.is_action_pressed("right_click"):
-			#var mousePosition = get_global_mouse_position()
-			#var direccion = (mousePosition - global_position).normalized()
-			#bullet.rotation = direccion.angle()
+		if Input.is_action_pressed("right_click") && (estado_actual==Estados.Idle):
+			var mousePosition = get_global_mouse_position()
+			var direccion = (mousePosition - global_position).normalized()
+			bullet.rotation = direccion.angle()
 			
 				
 		if Input.is_action_just_released("right_click"):

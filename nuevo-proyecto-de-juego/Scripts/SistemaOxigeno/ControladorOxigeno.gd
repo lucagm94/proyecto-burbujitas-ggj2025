@@ -48,9 +48,8 @@ func actualizar_tiempo():
 	%TextureProgressBar.value = tiempoTranscurrido
 	var currentPorcentaje = %TextureProgressBar.value * 100 /%TextureProgressBar.max_value
 	var porcentajeAMostrar = 100 - currentPorcentaje
-	%Texto.text =  str(porcentajeAMostrar) + "%"
-	
-	
+	%Texto.text =  str(roundi(porcentajeAMostrar)) + "%"
+
 	#if segundos < 10  && minutos <10:
 		#%Texto.text = "0" + str(minutos) + ":0" + str(segundos)
 	#elif segundos >10 && minutos < 10: 
@@ -77,6 +76,7 @@ func _on_reiniciar_oxigeno_timeout() -> void:
 	emit_signal("reiniciar_nivel")
 	segundos = SEGUNDOS_INICIALES
 	minutos = MINUTOS_INICIALES
+	tiempoTranscurrido  = 0
 	%TextureProgressBar.value = 0 
 	temporizador.start()
 	pass # Replace with function body.
