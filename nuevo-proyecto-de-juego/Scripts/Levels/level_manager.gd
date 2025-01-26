@@ -4,6 +4,7 @@ var restosMC = preload("res://Scripts/MC/restos_mc.tscn")
 var mc
 
 func _ready() -> void:
+	Sounds.play_music("UnderWaterSounds")
 	mc = $MainCharacter
 	
 func crearNuevoCuerpo() -> void: 
