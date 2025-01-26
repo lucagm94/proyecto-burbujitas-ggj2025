@@ -1,9 +1,50 @@
-[gd_scene format=3 uid="uid://b80866toftetp"]
+[gd_scene load_steps=6 format=3 uid="uid://b80866toftetp"]
 
-[node name="ControlDeRecoleccion" type="Control"]
+[ext_resource type="Script" path="res://Scenes/Levels/control_de_recoleccion.gd" id="1_ovv7t"]
+[ext_resource type="Texture2D" uid="uid://5n214pd4kyd2" path="res://Assets/menu/button_bg.png" id="2_3fa8n"]
+[ext_resource type="Texture2D" uid="uid://cvrp4hr1seguc" path="res://Assets/Plants/Alga.png" id="3_5t2lb"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_647vi"]
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_vodmw"]
+font_size = 29
+
+[node name="ControlDeRecoleccion" type="Control" groups=["Contador"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ovv7t")
+
+[node name="CartelGanaste" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(584.875, 280.875)
+scale = Vector2(3.71745, 16.3047)
+texture = ExtResource("2_3fa8n")
+
+[node name="TxtCartel" type="Label" parent="."]
+visible = false
+offset_left = 355.0
+offset_top = 228.0
+offset_right = 802.0
+offset_bottom = 369.0
+text = "¡Ganaste! 
+*Sonido de victoria*"
+label_settings = SubResource("LabelSettings_647vi")
+horizontal_alignment = 1
+
+[node name="Alga" type="Sprite2D" parent="."]
+position = Vector2(20.5, 19.875)
+scale = Vector2(0.0341667, 0.031875)
+texture = ExtResource("3_5t2lb")
+
+[node name="CantAlga" type="Label" parent="."]
+offset_left = 40.0
+offset_top = -1.0
+offset_right = 82.0
+offset_bottom = 39.0
+text = "x 0"
+label_settings = SubResource("LabelSettings_vodmw")

@@ -48,3 +48,11 @@ func _changeState(newState:State):
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	state._on_area_2d_body_entered(body)
 	pass # Replace with function body.
+
+
+
+func _on_area_2d_area_entered(area: Area2D) -> void:
+	if area.name == "AreaDeRecoleccion":
+		get_tree().call_group("Contador", "recolectar_algas",1)
+		queue_free()
+		

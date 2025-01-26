@@ -3,8 +3,8 @@ extends Control
 const MINUTOS_INICIALES = 5
 const SEGUNDOS_INICIALES = 0
 
-var minutos = 0
-var segundos = 4
+var minutos = 5
+var segundos = 0
 
 var totalTime;
 var tiempoTranscurrido = 0 

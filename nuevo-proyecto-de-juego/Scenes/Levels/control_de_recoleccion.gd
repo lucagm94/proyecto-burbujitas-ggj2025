@@ -1,11 +1,23 @@
 extends Control
 
+var algasRecolectadas = 0
+const ALGAS_A_RECOLECTAR = 1
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
+signal victoria
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	condicion_de_victoria()
+	
+
+func condicion_de_victoria():
+	if algasRecolectadas == ALGAS_A_RECOLECTAR:
+		emit_signal("victoria")	
+		$CartelGanaste.visible = true
+		$TxtCartel.visible = true
+		
+
+func recolectar_algas(algasRecogidas: int) -> void:
+	algasRecolectadas += algasRecogidas
+	$CantAlga.text = " x " + str(algasRecolectadas)
+	
