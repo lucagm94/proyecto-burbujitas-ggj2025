@@ -1,7 +1,7 @@
 extends Control
 
 var algasRecolectadas = 0
-const ALGAS_A_RECOLECTAR = 1
+const ALGAS_A_RECOLECTAR = 3
 
 signal victoria
 

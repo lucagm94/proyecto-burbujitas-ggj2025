@@ -47,7 +47,6 @@ layout_mode = 2
 [node name="TextureProgressBar" type="TextureProgressBar" parent="MarginContainer/CenterContainer"]
 unique_name_in_owner = true
 layout_mode = 2
-value = 10.0
 fill_mode = 1
 texture_under = SubResource("GradientTexture2D_y85rg")
 texture_progress = SubResource("GradientTexture2D_nq5hv")
