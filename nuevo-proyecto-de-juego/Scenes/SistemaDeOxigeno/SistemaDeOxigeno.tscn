@@ -60,7 +60,11 @@ layout_mode = 2
 text = "05:00"
 label_settings = SubResource("LabelSettings_lml8d")
 
-[node name="DescontarSegundo" type="Timer" parent="MarginContainer/CenterContainer"]
+[node name="DescontarSegundo" type="Timer" parent="."]
 autostart = true
 
-[connection signal="timeout" from="MarginContainer/CenterContainer/DescontarSegundo" to="." method="_on_descontar_segundo_timeout"]
+[node name="ReiniciarOxigeno" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="DescontarSegundo" to="." method="_on_descontar_segundo_timeout"]
+[connection signal="timeout" from="ReiniciarOxigeno" to="." method="_on_reiniciar_oxigeno_timeout"]

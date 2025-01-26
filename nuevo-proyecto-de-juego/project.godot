@@ -25,6 +25,7 @@ Bubble=""
 RompeBurbuja=""
 Ground=""
 ControlOxigeno=""
+Contador=""
 
 [input]
 
