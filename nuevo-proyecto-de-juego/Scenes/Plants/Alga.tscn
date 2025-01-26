@@ -1,16 +1,47 @@
-[gd_scene load_steps=6 format=3 uid="uid://coshao3qn5qa2"]
+[gd_scene load_steps=12 format=3 uid="uid://coshao3qn5qa2"]
 
 [ext_resource type="Script" path="res://Scripts/Plants/alga.gd" id="1_qehxn"]
-[ext_resource type="Texture2D" uid="uid://cvrp4hr1seguc" path="res://Assets/Plants/Alga.png" id="1_qrvc4"]
 [ext_resource type="Texture2D" uid="uid://yqi1aup7cwri" path="res://Assets/MC/Shots/PH_Bubble.png" id="2_bl17a"]
+[ext_resource type="Texture2D" uid="uid://ceg5m7agtsiej" path="res://Assets/Plants/AlgaFinal/alga1.png" id="2_jm5jc"]
+[ext_resource type="Texture2D" uid="uid://c0suqld505aha" path="res://Assets/Plants/AlgaFinal/alga2.png" id="3_l5a27"]
+[ext_resource type="Texture2D" uid="uid://dsqxgv3l7opvu" path="res://Assets/Plants/AlgaFinal/alga3.png" id="4_u7oqi"]
+[ext_resource type="Texture2D" uid="uid://b47clpxyqdkn2" path="res://Assets/Plants/AlgaFinal/alga4.png" id="5_uvd8v"]
+[ext_resource type="Texture2D" uid="uid://wk40gfpbt2vu" path="res://Assets/Plants/AlgaFinal/alga5.png" id="6_vymmv"]
+[ext_resource type="Texture2D" uid="uid://bt7rof8p7k1r3" path="res://Assets/Plants/AlgaFinal/alga6.png" id="7_lgx7j"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_6b2as"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_jm5jc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_l5a27")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_u7oqi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_uvd8v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_vymmv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_lgx7j")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 6.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t0s65"]
-radius = 51.0
-height = 154.0
+radius = 17.0
+height = 52.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_lwqxn"]
-radius = 6.9378
-height = 232.0
+radius = 2.46789
+height = 81.89
 
 [node name="Alga" type="RigidBody2D"]
 collision_layer = 513
@@ -20,50 +51,57 @@ center_of_mass = Vector2(0, 70)
 freeze = true
 script = ExtResource("1_qehxn")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(0.180833, 0.180833)
-texture = ExtResource("1_qrvc4")
+[node name="Sprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(7, 7)
+sprite_frames = SubResource("SpriteFrames_6b2as")
+animation = &"Idle"
+autoplay = "Idle"
+frame_progress = 0.372354
 
 [node name="Bubbles" type="Node2D" parent="."]
 
 [node name="FirstHit" type="Sprite2D" parent="Bubbles"]
 unique_name_in_owner = true
 visible = false
-position = Vector2(41, -2)
-scale = Vector2(2.03333, 2.03333)
+modulate = Color(1, 1, 1, 0.529412)
+position = Vector2(0, -22)
+scale = Vector2(3.5, 3.5)
 texture = ExtResource("2_bl17a")
 
 [node name="SecondHit" type="Sprite2D" parent="Bubbles"]
 unique_name_in_owner = true
 visible = false
-position = Vector2(-22.5, -26.5)
-scale = Vector2(1.9, 1.9)
+modulate = Color(1, 1, 1, 0.529412)
+position = Vector2(15, 4)
+scale = Vector2(3.5, 3.5)
 texture = ExtResource("2_bl17a")
 
 [node name="ThirdHit" type="Sprite2D" parent="Bubbles"]
 unique_name_in_owner = true
 visible = false
-position = Vector2(-12, 37)
-scale = Vector2(1.9, 1.9)
+modulate = Color(1, 1, 1, 0.529412)
+position = Vector2(-14, 3)
+scale = Vector2(3.5, 3.5)
 texture = ExtResource("2_bl17a")
 
 [node name="FourthHit" type="Sprite2D" parent="Bubbles"]
 unique_name_in_owner = true
 visible = false
 modulate = Color(1, 1, 1, 0.529412)
-position = Vector2(4, -10)
-scale = Vector2(5.98333, 7.49167)
+position = Vector2(-1.19209e-07, -8)
+scale = Vector2(7.17049, 7.17049)
 texture = ExtResource("2_bl17a")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
+position = Vector2(0, -3)
+scale = Vector2(-2.84266, -3.388)
 shape = SubResource("CapsuleShape2D_t0s65")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -11)
-scale = Vector2(8.50929, 0.934413)
+position = Vector2(1, -4)
+scale = Vector2(20.9065, 2.29576)
 shape = SubResource("CapsuleShape2D_lwqxn")
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]

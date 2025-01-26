@@ -1,10 +1,11 @@
 extends CharacterBody2D
 
-const SPEED = 300.0
+const SPEED = 3.0
 
 var bubble = preload("res://Scenes/MC/Shots/Bublee_shoot.tscn")
 var air = preload("res://Scenes/MC/Shots/Air.tscn")
 var bullet
+enum  Estados {Idle, Movimiento, Daño}
 
 var muerte = false
 
@@ -21,14 +22,35 @@ func _process(delta: float) -> void:
 
 func mover_mc(delta) -> void: 
 	var direccion = Vector2.ZERO
-	if Input.is_action_pressed("ui_up"):
-		direccion.y -= 1
-	if Input.is_action_pressed("ui_down"):
-		direccion.y += 1
-	if Input.is_action_pressed("ui_left"):
-		direccion.x -= 1
-	if Input.is_action_pressed("ui_right"):
-		direccion.x += 1
+	if Input.is_action_pressed("Nadar"):
+		%AnimatedSprite2D.play("Lateral")
+		%Colision_Idle.set_deferred("disabled",false)
+		%Area_Idle.set_deferred("disabled",false)
+		%MC_Colission_Lateral.set_deferred("disabled",true)
+		%Area_Lateral.set_deferred("disabled",true)
+		var mousePosition = get_global_mouse_position()
+		var direccionARotar = (mousePosition - global_position).normalized()
+		rotation = direccionARotar.angle()
+		position += direccionARotar*SPEED
+		rotation = direccionARotar.angle()
+		
+	if Input.is_action_just_released("Nadar"):
+		rotation = 0
+		%AnimatedSprite2D.play("Idle")
+		%Colision_Idle.set_deferred("disabled",true)
+		%Area_Idle.set_deferred("disabled",true)
+		%MC_Colission_Lateral.set_deferred("disabled",false)
+		%Area_Lateral.set_deferred("disabled",false)
+		
+
+	#if Input.is_action_pressed("ui_up"):
+		#direccion.y -= 1
+	#if Input.is_action_pressed("ui_down"):
+		#direccion.y += 1
+	#if Input.is_action_pressed("ui_left"):
+		#direccion.x -= 1
+	#if Input.is_action_pressed("ui_right"):
+		#direccion.x += 1
 	
 	direccion = direccion.normalized()
 	velocity = direccion * SPEED
@@ -50,20 +72,20 @@ func disparar() -> void:
 			emit_signal("consumir_oxigeno",1)
 
 		if Input.is_action_just_pressed("right_click"):
-			var mousePosition = get_global_mouse_position()
-			var direccion = (mousePosition - global_position).normalized()
+			#var mousePosition = get_global_mouse_position()
+			#var direccion = (mousePosition - global_position).normalized()
 			bullet = air.instantiate()
 			add_child(bullet)
-			bullet.global_position = global_position
-			bullet.rotation= direccion.angle()
+			bullet.global_position = %Marker2D.global_position
+			#bullet.rotation= direccion.angle()
 			emit_signal("consumir_oxigeno",1)
 			pass
 				
 			
-		if Input.is_action_pressed("right_click"):
-			var mousePosition = get_global_mouse_position()
-			var direccion = (mousePosition - global_position).normalized()
-			bullet.rotation = direccion.angle()
+		#if Input.is_action_pressed("right_click"):
+			#var mousePosition = get_global_mouse_position()
+			#var direccion = (mousePosition - global_position).normalized()
+			#bullet.rotation = direccion.angle()
 			
 				
 		if Input.is_action_just_released("right_click"):

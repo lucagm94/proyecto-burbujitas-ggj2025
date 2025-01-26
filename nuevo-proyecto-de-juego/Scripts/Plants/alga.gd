@@ -46,6 +46,7 @@ func _changeState(newState:State):
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
+	print("EL AREA COLISIONA CON "+ str(body))
 	state._on_area_2d_body_entered(body)
 	pass # Replace with function body.
 

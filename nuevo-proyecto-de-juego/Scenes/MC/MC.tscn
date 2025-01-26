@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c0m85grsc5gfp"]
+[gd_scene load_steps=26 format=3 uid="uid://c0m85grsc5gfp"]
 
 [ext_resource type="Script" path="res://Scripts/MC/MC.gd" id="1_ylmd1"]
 [ext_resource type="Texture2D" uid="uid://dwxb0hf7grk5e" path="res://Assets/MC/MC/Hurt.png" id="2_t6bkd"]
@@ -71,11 +71,6 @@ region = Rect2(320, 0, 80, 80)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_avby1"]
 animations = [{
-"frames": [],
-"loop": true,
-"name": &"Down",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pvooj")
@@ -143,6 +138,9 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pkstb"]
 size = Vector2(44, 15)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2hovq"]
+size = Vector2(19, 49)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8mpw8"]
 size = Vector2(46, 17)
 
@@ -153,30 +151,38 @@ size = Vector2(21, 51)
 script = ExtResource("1_ylmd1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+unique_name_in_owner = true
 sprite_frames = SubResource("SpriteFrames_avby1")
-animation = &"Idle"
+animation = &"Lateral"
 autoplay = "Idle"
 
 [node name="MC_Colission_Lateral" type="CollisionShape2D" parent="."]
+unique_name_in_owner = true
 position = Vector2(2, -2.5)
 shape = SubResource("RectangleShape2D_pkstb")
 
 [node name="Colision_Idle" type="CollisionShape2D" parent="."]
-position = Vector2(2, -2.5)
-shape = SubResource("RectangleShape2D_pkstb")
+unique_name_in_owner = true
+position = Vector2(3.5, 0.5)
+shape = SubResource("RectangleShape2D_2hovq")
 
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="Area_Lateral" type="CollisionShape2D" parent="Area2D"]
-visible = false
+unique_name_in_owner = true
 position = Vector2(2, -2.5)
 shape = SubResource("RectangleShape2D_8mpw8")
 
 [node name="Area_Idle" type="CollisionShape2D" parent="Area2D"]
+unique_name_in_owner = true
 position = Vector2(3.5, 0.5)
 shape = SubResource("RectangleShape2D_q1dxq")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(22, -3)
 
 [connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_area_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
